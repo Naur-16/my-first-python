@@ -12,11 +12,24 @@ birth_year = input("Which year were you born? ")
 age = 2026 - int(birth_year)
 
 time.sleep(0.5)
-confirmation = input(f"So, you are {age} years old, correct? (yes/no): ")
 
-if confirmation.strip().lower() == "yes":
-    time.sleep(0.5)
-    print("Yey! I guessed it. Hehe.")
-else:
-    time.sleep(2)
-    print("Oh no... I might need a software update, huhu... I am so sorry!")
+while True:
+    confirmation = input(f"So, you are {age} years old, correct? (yes/no): ").strip().lower()
+    
+    if confirmation == "yes":
+        time.sleep(0.5)
+        print("Yey! I guessed it. Hehe.")
+        break  # This exits the loop because the answer was valid
+        
+    elif confirmation == "no":
+        time.sleep(2)
+        print("Oh no... I might need a software update, huhu... I am so sorry!")
+        break  # This also exits the loop
+        
+    else:
+        # If they type "Naur" or anything else, this happens:
+        print("Invalid response! Please type 'yes' or 'no' so I can understand you.")
+        time.sleep(0.5)
+        # No 'break' here, so it loops back to the question
+        
+#Successfully added While Loops at the same day - 10:26 PM !
